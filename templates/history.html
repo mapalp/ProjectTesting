@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Transaction History{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">Navigation</h5>
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="{{ url_for('dashboard') }}" class="list-group-item list-group-item-action">Dashboard</a>
+                <a href="{{ url_for('market') }}" class="list-group-item list-group-item-action">Trade Stocks</a>
+                <a href="{{ url_for('cash_management') }}" class="list-group-item list-group-item-action">Deposit/Withdraw</a>
+                <a href="{{ url_for('transaction_history') }}" class="list-group-item list-group-item-action active">Transaction History</a>
+                <a href="#" class="list-group-item list-group-item-action">Account Settings</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <h2 class="mb-4">Transaction History</h2>
+        
+        <div class="card">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Action</th>
+                                <th>Stock</th>
+                                <th>Shares</th>
+                                <th>Price</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025-09-13 14:30</td>
+                                <td><span class="badge bg-success">BUY</span></td>
+                                <td>AAPL</td>
+                                <td>10</td>
+                                <td>$150.25</td>
+                                <td>$1,502.50</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-09-13 13:45</td>
+                                <td><span class="badge bg-info">DEPOSIT</span></td>
+                                <td>Cash</td>
+                                <td>N/A</td>
+                                <td>N/A</td>
+                                <td>$1,000.00</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-09-12 11:15</td>
+                                <td><span class="badge bg-danger">SELL</span></td>
+                                <td>MSFT</td>
+                                <td>5</td>
+                                <td>$402.50</td>
+                                <td>$2,012.50</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Cash Management{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">Navigation</h5>
+            </div>
+            <div class="list-group list-group-flush">
+                <a href="{{ url_for('dashboard') }}" class="list-group-item list-group-item-action">Dashboard</a>
+                <a href="{{ url_for('market') }}" class="list-group-item list-group-item-action">Trade Stocks</a>
+                <a href="{{ url_for('cash_management') }}" class="list-group-item list-group-item-action active">Deposit/Withdraw</a>
+                <a href="{{ url_for('transaction_history') }}" class="list-group-item list-group-item-action">Transaction History</a>
+                <a href="#" class="list-group-item list-group-item-action">Account Settings</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <h2 class="mb-4">Cash Management</h2>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card bg-info text-white mb-4">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Available Cash</h5>
+                        <h3 class="card-text">$2,500.75</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Deposit Funds</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="depositAmount" class="form-label">Amount</label>
+                                <input type="number" class="form-control" id="depositAmount" name="amount" min="1" step="0.01" required>
+                            </div>
+                            <button type="submit" class="btn btn-success">Deposit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">Withdraw Funds</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="withdrawAmount" class="form-label">Amount</label>
+                                <input type="number" class="form-control" id="withdrawAmount" name="amount" min="1" step="0.01" required>
+                            </div>
+                            <button type="submit" class="btn btn-danger">Withdraw</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Recent Cash Transactions</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2025-09-13 14:30</td>
+                                <td>Deposit</td>
+                                <td class="text-success">+$1,000.00</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>2025-09-12 11:15</td>
+                                <td>Withdrawal</td>
+                                <td class="text-danger">-$500.00</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
